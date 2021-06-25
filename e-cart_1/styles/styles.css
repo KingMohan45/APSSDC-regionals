@@ -1,0 +1,116 @@
+*
+{
+	font-family:"Raleway";
+	box-sizing: border-box;
+	margin:0;
+}
+@font-face
+{
+	font-family: "Raleway";
+	src:url("font1.woff2") format("woff2");
+}
+.header
+{
+	background: #456;
+	padding:10px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+.header>a
+{
+	color: white;
+	text-decoration: none;
+	margin: 0 10px;
+}
+#overFlowMenu
+{
+	width: 20px;
+	height: 20px;
+}
+#iconDiv:hover
+{
+	cursor: pointer;
+}
+#iconDiv
+{
+	display: none;
+	background: #fff;
+	padding: 10px;
+	border-radius: 50%;
+	width: 45px;
+	justify-content: center;
+}
+.items
+{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+.item
+{
+	margin: 20px;
+	width: 200px;
+	padding: 10px;
+	text-align: center;
+	background:cadetblue;
+	border-radius: 10px;
+	box-shadow: 4px 5px 10px 0px #9e8461;
+}
+.itemImg
+{
+	width: 100px;
+	height: 100px;
+}
+.itemBuy
+{
+	width: 80px;
+	padding: 2px 8px;
+	border-radius: 10px;
+	border: 1px solid chocolate;
+}
+.itemBuy:hover
+{
+	color: white;
+}
+@media only screen and (max-width:490px)
+{
+	.child
+	{
+		width: 100%;
+		text-align: center;
+		padding: 10px;
+		display: none;
+	}
+	.header
+	{
+		justify-content: space-between;
+	}
+	#companyName
+	{
+		width: auto;
+		display: block;
+	}
+	#iconDiv
+	{
+		display: block;
+	}
+}
+@media only screen and (max-width: 200px)
+{
+	#companyName
+	{
+		width: 100%;
+	}
+	#topDev
+	{
+		width: 100%;
+	}
+}
+@media only screen and (min-width: 491px)
+{
+	.child
+	{
+		display: block;
+	}
+}

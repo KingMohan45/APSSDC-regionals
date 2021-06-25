@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>E-commerce</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="styles/styles.css">
+	<link rel="stylesheet" type="text/css" href="">
+	<script type="text/javascript" src="jquery.min.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		var visible=0;
+		function show()
+		{
+			var x=document.getElementsByClassName("child");
+			for(var i=2;i<=5;i++)
+			{
+				if(visible)
+					x[i].style.display="none";
+				else
+					x[i].style.display="block";
+			}
+			visible=(visible+1)%2;
+		}
+		var x=window.matchMedia("(min-width:491px)");
+		function show_or_hide(x)
+		{
+			var child=document.getElementsByClassName('child');
+			if(x.matches)
+			{
+				for(var i=2;i<=5;i++)
+				{
+					child[i].style.display="block";
+				}
+			}
+		}
+		x.addListener(show_or_hide);
+	</script>
+	<header class="header">
+		<a href="#" class="child" id="companyName">E-commerce</a>	
+		<div align="center" id="topDev">
+			<div id="iconDiv" onclick="show()" align="center" class="child">
+				<img src="images/menu.svg" id="overFlowMenu">
+			</div>
+		</div>
+		<a href="#" class="child">Items</a>	
+		<a href="#" class="child">Categories</a>	
+		<a href="#" class="child">Contact us</a>	
+		<a href="#" class="child">About us</a>
+	</header>
+	<section class="items">
+		<article class="item">
+			<img src="images/cart_item.svg" class="itemImg"><br><br>
+			<p class="itemName">Name:****</p><br>
+			<p class="itemPrice">Proce:Rs.***</p><br>
+			<p class="itemDesc">--Description--</p><br>
+			<button class="itemBuy">Buy</button>
+		</article>
+	</section>
+	<script type="text/javascript">
+		fetch("./data.json")
+			.then(function(resp){
+				return resp.json();
+			})
+			.then(function(data){
+				console.log(data);
+			});
+		//var item_count=data['meta'][0]['items_count'];
+		var Names=["Item 1","Item 2","Item 3","Item 4","Item 5","Item 5","Item 6","Item 7","Item 8"];
+		var Prices=[10,20,30,40,50,60,70,80];
+		var Descs=["Random text 1","Random text 2","Random text 3","Random text 4","Random text 5","Random text 5","Random text 6","Random text 7","Random text 8"];
+		var section=document.getElementsByClassName("items")[0];
+		for(var i=0;i<8;i++)
+		{
+			var article = document.createElement("article");
+			article.classList.add("item");
+			var img = document.createElement("img");
+			img.classList.add("itemImg");
+			var NAME = document.createElement("p");
+			NAME.classList.add("itemName");
+			var price = document.createElement("p");
+			price.classList.add("itemPrice");
+			var desc = document.createElement("p");
+			desc.classList.add("itemDesc");
+			var buy=document.createElement("button");
+			buy.classList.add("itemBuy");
+			buy.appendChild(document.createTextNode("Buy"));
+			img.src="images/cart_item.svg";
+			NAME.appendChild(document.createTextNode(Names[i]));
+			price.appendChild(document.createTextNode(Prices[i]));
+			desc.appendChild(document.createTextNode(Descs[i]));
+			article.appendChild(img);
+			article.appendChild(document.createElement("br"));
+			article.appendChild(document.createElement("br"));
+			article.appendChild(NAME);
+			article.appendChild(document.createElement("br"));
+			article.appendChild(price);
+			article.appendChild(document.createElement("br"));
+			article.appendChild(desc);
+			article.appendChild(document.createElement("br"));
+			article.appendChild(buy);
+			section.appendChild(article);
+
+		}
+	</script>
+</body>
+</html>
