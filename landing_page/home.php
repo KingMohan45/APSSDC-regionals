@@ -14,6 +14,7 @@
 			{
 				$user=$_POST['name'];
 				$email=$_POST['email'];
+				$message=$_POST['message'];
 				if(!preg_match("/^[0-9a-zA-Z]+$/",$user))
 				{
 					echo "<script>alert('Username is invalid');</script";
@@ -23,10 +24,13 @@
 				{
 					echo "<script>alert('Email is invalid');</script>";
 				}
+				if(strlen($message)==0){
+					echo "<script>alert('Enter some message');</script>";
+				}
 				else
 				{
 					$conn = new mysqli ('localhost','root','','apssdc'); 	
-					$sql = "INSERT INTO intrested(name,email) VALUES ('$user','$email')";
+					$sql = "INSERT INTO intrested(name,email,message) VALUES ('$user','$email','$message')";
 					if(!$conn->query($sql))
 					{
 						echo "<script>alert('Something is wrong with database');</script>";
