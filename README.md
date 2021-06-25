@@ -1,7 +1,6 @@
 # APSSDC-regionals
 - The task was to build a Landing page with responsive UI and a basic backend connection that provides form to contact
 - A server and a MySQL DB are required
-- Attached db file in the landing page folder
 
 ![Demo Image](https://github.com/KingMohan45/APSSDC-regionals/blob/master/landing_page/demo_.png)
 
